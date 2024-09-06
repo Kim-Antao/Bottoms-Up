@@ -1,38 +1,43 @@
 @use '../../assets/styling/font' as *;
+@import '../../assets/styling/mediaQueries.scss';
+
 
 .nav{
-    color: white;
-    display: flex;
-    padding: 2rem;
-   justify-content:space-between;
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    &__container{
+        background-color: rgb(235, 96, 40);
+        display: flex;
+        justify-content: flex-end;
+        // background-color: green;
+        margin: 0;
+        padding: 0;
+    }
+    
 
-   &__brand{
-    font-family: $display-font;
+    &__items{
+       list-style: none;
+    //    background-color: red;
+       padding: 0.5em;
+
+    }
+    &__brand{
+        margin-right: auto;
+        font-family: $display-font;
     font-size: large;
     font-weight: 700;
-
     letter-spacing: 2px;
-    &--img-size{
+    }
+    &__brand-icon{
         width: 1.2em;
         height: 1.2em;
     }
-}
-
-    &__items{
-       // padding: 2rem;
-       display: flex;
-       // padding-left: 2rem;
-        //margin: 0 auto;
-      //  margin-right: 0;
-      //justify-content: flex-end;
-
-
-     
-    }
-    &__img{
-        padding-right: 1rem;
-        width: 1.5em; 
-        height: 1.5em;
+    &__link{
+        width: 2em;
+        height: 2em;
+        padding-right: 1em;
+        
     }
 }
 
