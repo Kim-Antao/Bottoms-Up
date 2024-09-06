@@ -1,0 +1,29 @@
+.main-display{
+   // min-height: 100vh;
+   // width: 100vw;
+   height: 100vh;
+    
+    &__video{
+        height: 100%;
+       width: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+    }
+    &__content{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0%;
+        left: 0%;
+        display: flex;
+        flex-direction: column;
+       justify-content: center;
+       align-items: center;
+    //    background-color: rgba(235, 96, 40, .2);
+       background-color: rgba(0,0,0,0.3);
+    }
+}
+
