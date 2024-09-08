@@ -1,18 +1,27 @@
 @use '../../assets/styling/font' as *;
+@use '../../assets/styling/color' as *;
 @import '../../assets/styling/mediaQueries.scss';
 
 
 .nav{
-    position: fixed;
+ //   position: sticky;
+   // top: 0;
+   position: fixed;
     z-index: 10;
     width: 100vw;
+    color: white;
+    transition: background-color 1s ease-in-out;
+
     &__container{
-        background-color: rgb(235, 96, 40);
-        display: flex;
+       background-color: rgba($primary-color, 0.4);
+    //    background-color: rgba(0, 0, 0, 0.8);
+      
+       display: flex;
         justify-content: flex-end;
         // background-color: green;
         margin: 0;
         padding: 0;
+        // animation: opaque 1s;
     }
     
 
@@ -20,24 +29,40 @@
        list-style: none;
     //    background-color: red;
        padding: 0.5em;
+       
 
     }
     &__brand{
         margin-right: auto;
         font-family: $display-font;
-    font-size: large;
-    font-weight: 700;
-    letter-spacing: 2px;
+        font-size: large;
+        font-weight: 700;
+        letter-spacing: 2px;
     }
     &__brand-icon{
         width: 1.2em;
         height: 1.2em;
     }
     &__link{
-        width: 2em;
+        /* width: 2em;
         height: 2em;
-        padding-right: 1em;
+        padding-right: 1em; */
+        color: white;
+        text-decoration: none;
         
     }
 }
 
+/* @keyframes opaque{
+    from 0%{
+        opacity: 0.4;
+    }
+    to 100%{
+        opacity: 1;
+    }
+}
+ */
+
+ .nav.scrolled{
+    background-color: rgba($primary-color, 1);
+ }
