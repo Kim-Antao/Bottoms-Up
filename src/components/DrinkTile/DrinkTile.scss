@@ -1,0 +1,17 @@
+@use './../../assets/styling/color' as *;
+
+.drink-tile{
+ //   width: 100%;
+// border: 1px solid $primary-color;
+ //padding: 1em;
+ //padding: 0 auto;
+ max-width: 50%;
+ //border-radius: 5%;
+// background-color: rgba($primary-color,1);
+
+
+ &__image{
+    max-width: 90%;
+  //  border-radius: 15%;
+   }
+}

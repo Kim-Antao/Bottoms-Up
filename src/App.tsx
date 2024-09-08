@@ -1,36 +1,42 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.scss'
+import LandingPage from './components/LandingPage/LandingPage';
+import video from '../src/assets/media/homepage-video.mp4';
+import Drinks from './components/Drinks/Drinks';
 
 function App() {
-  const [count, setCount] = useState(0);
-  //const [drink, setDrink] = useState([]);
+//  const [count, setCount] = useState(0);
 
-  // useEffect(()=>{
-  //   const url = "www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007";
-  //   fetch(url)
-  //    .then(res => res.json())
-  //   .then(data => (data.json()))
-  // //  console.log(data)
-  // },[])
 
-useEffect(()=>{
-  fetchRows();
-},[])
+  const [alcholicDrinks, setAlcoholicDrinks] = useState(null);
+  const[nonAlcoholicDrinks, setNonAlcoholicDrinks] = useState(null);
 
-const fetchRows = async () => {
-  let rows =[];
-  const response = await fetch('https://thecocktaildb.com/api/json/v1/1/lookup.php?i=11007');
-  const data = await response.json();
-  rows = data;
-  console.log(rows);
-}
+  useEffect(()=>{
+    fetch('https://thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic')
+      .then(resp => {
+        return resp.json()
+      })
+      .then(data => {
+        setAlcoholicDrinks(data.drinks);
+     //   console.log(alcholicDrinks)
+      });
+    
+    fetch('https://thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic')
+    .then(resp => {
+      return resp.json()
+    })
+    .then(data => {
+      setNonAlcoholicDrinks(data.drinks)
+    });
+  },[])
 
+ 
   return (
     <>
-
-      <div>
+      <LandingPage video={video} heading='MIXOLOGIST' buttonLabel='Explore'/>
+      {alcholicDrinks && <Drinks heading='Alcholic' drinkList={alcholicDrinks}/>}
+      {nonAlcoholicDrinks && <Drinks heading='Non-Alcholic' drinkList={nonAlcoholicDrinks}/>}
+      {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -49,7 +55,7 @@ const fetchRows = async () => {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
     </>
   )
 }
