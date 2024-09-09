@@ -1,0 +1,16 @@
+@use "./../../assets/styling/color" as *;
+
+.search-box{
+  //  width: ;
+  width: 33%;
+    background-color: rgba($primary-color,0.2);
+    // outline: none;
+  //  border: 1px solid $primary-color;
+    border-radius: 60px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    &::placeholder{
+        color: rgba(255, 255, 255,0.5);
+    }
+}
