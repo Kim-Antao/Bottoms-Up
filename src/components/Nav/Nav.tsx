@@ -1,6 +1,6 @@
 import './Nav.scss'
-import Search from '../Search/Search';
 import icon from '../../assets/media/whiteCoctailIcon.png';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
 
@@ -15,22 +15,21 @@ const Nav = () => {
   })
   return ( 
       <nav className='nav' >
-        <ul className='nav__container'>
+        <div className='nav__container'>
           
-            <li className='nav__items nav__brand'>
-            <a href="#" className='nav__link'>
+           <Link to="/" className='nav__items nav__brand'>
               M
               <img  className="nav__brand-icon" src={icon} alt="" />
               XOLOGIST
-              </a>
-              </li>
-          {/*   <li className='nav__items nav__link'>
+              </Link>
+              <Link to="/alldrinks" className='nav__items'>Drinks</Link>
+        {/*   <li className='nav__items nav__link'>
               <svg xmlns="http://www.w3.org/2000/svg" className=""  viewBox="0 0 24 24"><path fill="white" d="M10 20v-6h4v6h5v-8h3L12 3L2 12h3v8z"/></svg>              
             </li>
             <li className='nav__items'>
               <Search/>
             </li> */}
-        </ul>
+        </div>
       </nav>
   )
 }
