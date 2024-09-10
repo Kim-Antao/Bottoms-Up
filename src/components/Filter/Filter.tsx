@@ -4,7 +4,7 @@ import { FormEventHandler } from "react"
 
 type FilterProps ={
   drinkCategory: string,
-  handleTypeSelected: (FormEventHandler<HTMLSelectElement>)
+  handleTypeSelected: (FormEventHandler<HTMLInputElement>)
 }
 
 const Filter = ({drinkCategory,handleTypeSelected}:FilterProps) => {
@@ -17,14 +17,22 @@ const Filter = ({drinkCategory,handleTypeSelected}:FilterProps) => {
         <button className="filter-tab__links">Non-Alcoholic</button>
     </div> */
   <div>
-    <label htmlFor="typeOfDrink">
+    {/* <label htmlFor="typeOfDrink">
       Filter By:
       <select id="typeOfDrink" value={drinkCategory} onChange={handleTypeSelected}>
         <option value="all">All</option>
         <option value="alcoholic">Alcoholic</option>
         <option value="non-alcoholic">Non-Alcoholic</option>
       </select>
-    </label>
+    </label> */}
+    <label htmlFor="allDrinks">All </label>
+      <input type="radio" name="drink-category" value="all" id="allDrinks" checked={drinkCategory==="all"} onChange={handleTypeSelected} />
+     
+    <label htmlFor="alcDrinks">Alcoholic </label>
+      <input type="radio" name="drink-category" value="alcoholic" id="alcDrinks" onChange={handleTypeSelected} />
+   
+    <label htmlFor="nonAlcDrinks">Non-Alcoholic</label>
+      <input type="radio" name="drink-category" value="non-alcoholic" id="nonAlcDrinks" onChange={handleTypeSelected} />
   </div>
   )
 }
