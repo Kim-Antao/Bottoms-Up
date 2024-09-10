@@ -1,20 +1,54 @@
-import DrinkTile from '../../components/DrinkTile/DrinkTile';
-import SearchBox from '../../components/SearchBox/SearchBox';
 import './AllDrinks.scss';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { drinks } from '../../types/drinks';
 import Drinks from '../../components/Drinks/Drinks';
 import Filter from '../../components/Filter/Filter';
+import SearchBox from '../../components/SearchBox/SearchBox';
 
 type AllDrinksProps = {
   alDrinks: drinks[],
   nonAlDrinks: drinks[],
 }
 
+
 const AllDrinks = ({alDrinks, nonAlDrinks}: AllDrinksProps) => {
-  // console.log('drinks array ', drinks)
+
   const [searchTerm, setSearchTerm] = useState("");
-  let drinks = [...alDrinks, ...nonAlDrinks];
+
+
+  const alcoholic = alDrinks.map((al)=>{
+  return{
+    ...al,
+    flag: 'AL',
+  }
+  });
+
+  const nonAlcoholic = nonAlDrinks.map((nonAl)=>{
+    return{
+      ...nonAl,
+      flag: 'NON',
+    }
+  })
+
+  const drinks = [...alcoholic, ...nonAlcoholic];
+
+  const shuffle = () => {
+    let currentIndex = drinks.length;
+
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+
+      // Pick a remaining element...
+      let randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [drinks[currentIndex], drinks[randomIndex]] = [drinks[randomIndex], drinks[currentIndex]];
+    }
+  }
+
+  shuffle();
+
 
   const handleSearchInput = (event: FormEvent<HTMLInputElement>) => {
    setSearchTerm(event.currentTarget.value);
@@ -24,40 +58,57 @@ const AllDrinks = ({alDrinks, nonAlDrinks}: AllDrinksProps) => {
 
   const handleTypeSelected = (event: FormEvent<HTMLSelectElement>) => {
     setdrinkCategory(event.currentTarget.value)
-    
-  //  console.log(drinkCategory);
   }
-  // console.log('search term', searchTerm);
-  
- // console.log(drinkCategory);
- if(drinkCategory === "all"){
-  drinks = [...alDrinks, ...nonAlDrinks];
 
-}else if(drinkCategory === "alcoholic"){
-  drinks = [...alDrinks];
+  const [drinksList, setDrinksList]=useState([...alcoholic, ...nonAlcoholic]);
 
-}else if(drinkCategory === "non-alcoholic"){
-  drinks = [...nonAlDrinks];
+  useEffect(()=>{
+    if(drinkCategory === "all"){
+      setDrinksList(drinks);
+    }else if(drinkCategory === "alcoholic"){
+      setDrinksList(drinks.filter((drink)=> drink.flag==="AL"));
+    }else if(drinkCategory === "non-alcoholic"){
+      setDrinksList(drinks.filter((drink)=> drink.flag==="NON"));
+    }
+    
+  },[drinkCategory])
+
+  console.log(drinksList);
+/*   const filteredDrinks = [...drinks];
+
+  if(drinkCategory === "all"){
+     filteredDrinks = [...drinks];
   
-}
-//  console.log(drinks);
-  const filteredDrinks = drinks.filter((drink) => drink.strDrink.toLowerCase().includes(searchTerm.toLowerCase()));
-// console.log('filtered drinks array ',filteredDrinks);
+  }else if(drinkCategory === "alcoholic"){
+    filteredDrinks = drinks.filter();
+  
+  }else if(drinkCategory === "non-alcoholic"){
+    drinks = [...nonAlDrinks];
+    
+  }  */
+ /*    const [filteredDrinks, setFilteredDrinks] = useState([]); 
+    
+    setFilteredDrinks(() => {
+      drinks.filter((drink) => drink.strDrink.toLowerCase().includes(searchTerm.toLowerCase()))
+}); */
+
+    // if(drinkCategory === "alcholic"){
+   const filteredDrinks = drinksList.filter((drink) => drink.strDrink.toLowerCase().includes(searchTerm.toLowerCase()));
+         
+
+
+
   return (
     <div className='alldrinks-container'>
       <div className="alldrinks-container__header">
       <Filter drinkCategory={drinkCategory} handleTypeSelected={handleTypeSelected}/>
       <h2 className="alldrinks-container__heading">{
-        //searchTerm.length === 0 ? "All Drinks" : drinkCategory.toUpperCase()
        drinkCategory[0].toUpperCase()+drinkCategory.slice(1)
        } Drinks</h2>
       <SearchBox searchTerm={searchTerm} handleSearchInput={handleSearchInput}/>
-      
-
       </div>
       <div className='alldrinks-container__content'>
       <Drinks drinkList={filteredDrinks}/>
-
       </div>
     </div>
   )
