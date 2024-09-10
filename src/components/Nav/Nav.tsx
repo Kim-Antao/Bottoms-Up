@@ -22,7 +22,7 @@ const Nav = () => {
               <img  className="nav__brand-icon" src={icon} alt="" />
               XOLOGIST
               </Link>
-              <Link to="/alldrinks" className='nav__items'>Drinks</Link>
+              <Link to="/drinks" className='nav__items'>Drinks</Link>
         {/*   <li className='nav__items nav__link'>
               <svg xmlns="http://www.w3.org/2000/svg" className=""  viewBox="0 0 24 24"><path fill="white" d="M10 20v-6h4v6h5v-8h3L12 3L2 12h3v8z"/></svg>              
             </li>
