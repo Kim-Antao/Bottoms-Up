@@ -1,28 +1,27 @@
 // import React from 'react'
 import "./Drinks.scss";
 import DrinkTile from "../DrinkTile/DrinkTile";
+import { drinks } from "../../types/drinks";
 
-type drinks = {
-  strDrink: string,
-  strDrinkThumb: string,
-  idDrink: string,
-}
 
 type DrinksProps ={
-    heading: string;
+    //heading: string;
    drinkList: drinks[];
 }
 
 
 
-const Drinks = ({heading, drinkList}:DrinksProps) => {
-  
+const Drinks = ({ drinkList}:DrinksProps) => {
+  // const filteredDrinks = drinkList.filter((drinkList.strDrinks))
   return (
-    <div className="drinks-container">
-        <h2>{heading}</h2>
- { drinkList.map((drink) => (<DrinkTile name={drink.strDrink} image={drink.strDrinkThumb} key={drink.idDrink}/> )).slice(0,4)}
+    <>
+        {/* <h2 className="drinks-container__heading">{
+        heading.length === 0 ? "All Drinks" : heading
+        }</h2> */}
+      {/* { drinkList.map((drink) => (<DrinkTile name={drink.strDrink} image={drink.strDrinkThumb} key={drink.idDrink} /> )).slice(0,4)} */}
+      { drinkList.length === 0 ? <p>Oops!! Try another drink name</p> : drinkList.map((drink) => (<DrinkTile name={drink.strDrink} image={drink.strDrinkThumb} key={drink.idDrink} /> ))}
 
-    </div>
+    </>
   )
 }
 

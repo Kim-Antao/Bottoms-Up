@@ -1,4 +1,6 @@
 @use './../../assets/styling/color' as *;
+@use './../../assets/styling/mixins';
+
 
 .drink-tile{
  //   width: 100%;
@@ -13,5 +15,15 @@
  &__image{
     max-width: 90%;
   //  border-radius: 15%;
+   }
+}
+
+
+
+
+@include mixins.medium-screen-and-above{
+
+   .drink-tile{
+      max-width: 20%;
    }
 }

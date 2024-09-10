@@ -1,0 +1,23 @@
+.alldrinks-container{
+    padding-top: 5em;
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url("./../../assets/media/mixologist-copper.webp");
+   // background-image: url("./../../assets/media/mixologist-copper.webp");
+    background-position: center;
+   background-size: cover;
+  //display: flex;
+
+  &__header{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__content{
+    padding-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
+
