@@ -1,0 +1,16 @@
+@use './../../assets/styling/color' as *;
+
+.filter-container{
+
+    &__item-label{
+        padding: 0 0.5em;
+    }
+
+    &__item-radiobtn{
+       margin-right: 2em;
+
+       &:checked{
+        accent-color: $primary-color;
+       }
+    }
+}
