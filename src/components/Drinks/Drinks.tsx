@@ -1,10 +1,10 @@
 import "./Drinks.scss";
 import DrinkTile from "../DrinkTile/DrinkTile";
-import { drinkCategory } from "../../types/drinks";
+import { DrinkCategory } from "../../types/drink";
 
 
 type DrinksProps ={
-   drinkList: drinkCategory[];
+   drinkList: DrinkCategory[];
    searchTerm: string;
 }
 

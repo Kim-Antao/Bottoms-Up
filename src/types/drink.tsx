@@ -1,4 +1,11 @@
-export type drink = {
+export type DrinkCategory = {
+  strDrink: string,
+  strDrinkThumb: string,
+  idDrink: string,
+  isAlcoholic: boolean,
+}
+
+export type Drink = {
     idDrink: string,
     strDrink: string,
     strTags: string,

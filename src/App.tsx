@@ -6,8 +6,7 @@ import video from '../src/assets/media/homepage-video.mp4';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AllDrinks from './container/AllDrinks/AllDrinks';
 import Recipes from './components/Recipes/Recipes';
-import { drinkCategory } from './types/drinks';
-import RandomDrink from './components/RandomDrink/RandomDrink';
+import { DrinkCategory } from './types/drink';
 
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
         return resp.json()
       })
       .then(data => {
-        setAlcoholicDrinks(data.drinks.map((al: drinkCategory)=>{
+        setAlcoholicDrinks(data.drinks.map((al: DrinkCategory)=>{
             return{
               ...al,
               isAlcoholic: true,
@@ -36,7 +35,7 @@ function App() {
       return resp.json()
     })
     .then(data => {
-      setNonAlcoholicDrinks(data.drinks.map((nonAl: drinkCategory)=>{
+      setNonAlcoholicDrinks(data.drinks.map((nonAl: DrinkCategory)=>{
         return{
           ...nonAl,
           isAlcoholic: false,

@@ -2,20 +2,11 @@ import { useEffect, useState } from 'react';
 import './Recipes.scss';
 import { useParams } from 'react-router-dom';
 import { drink } from '../../types/drink';
-//import { drink } from '../../types/drink';
 
-/* type RecipesProps = {
-    drinks: drink;
-} */
-/* type RecipesProps = {
- // debug: boolean,
-} */
 const Recipes = () => {
-  //console.log('In recipe component', debug)
-  const {drinkId} = useParams();
- // console.log(drinkId);
-  const url = `https:/thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`;
   const [recipe, setRecipe] = useState({} as drink);
+  const {drinkId} = useParams();
+  const url = `https:/thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`;
 
   useEffect(()=>{
     fetch(url)
@@ -23,24 +14,11 @@ const Recipes = () => {
     .then(data=> setRecipe(data.drinks[0]));
   },[drinkId]) 
 
-/*   const getRecipe = async () =>{
-    const response = await fetch (url);
-    const data = await response.json();
-    return data;
-  }
+  const recipeInfo = (Object.entries(recipe)).reduce((acc,[key, value])=>{
+    acc.push[key,value];
+  },([]));
+  //const Ingredients = recipe.reduce(acc, )
 
-  useEffect(()=>{
-    const getRecipeData = async ()=>{
-      const data = await getRecipe();
-      setRecipe(data.drinks[0]);
-    }
-
-    getRecipeData();
-  },[])
- */
-
-
-  console.log(recipe);
   return  (
     <div>
       <div className='recipe__container'>

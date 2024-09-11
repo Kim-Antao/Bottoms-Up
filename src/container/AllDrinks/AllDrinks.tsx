@@ -1,12 +1,12 @@
 import './AllDrinks.scss';
 import { FormEvent, useEffect, useState } from 'react';
-import { drinkCategory } from '../../types/drinks';
+import { DrinkCategory } from '../../types/drink';
 import Drinks from '../../components/Drinks/Drinks';
 import Filter from '../../components/Filter/Filter';
 import SearchBox from '../../components/SearchBox/SearchBox';
 
 type AllDrinksProps = {
-  allDrinks: drinkCategory[],
+  allDrinks: DrinkCategory[],
 }
 
 
