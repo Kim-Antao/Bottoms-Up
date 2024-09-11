@@ -8,10 +8,10 @@ type searchBoxProps = {
 
 const SearchBox = ({searchTerm, handleSearchInput}:searchBoxProps) => {
   return (
-    <div>
+    <>
         <input className="search-box" type="text" value={searchTerm} onInput={handleSearchInput} placeholder="Drink name"/>
       
-    </div>
+    </>
   )
 }
 

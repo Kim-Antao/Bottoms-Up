@@ -10,14 +10,20 @@
 
   &__header{
     display: flex;
-    justify-content: space-evenly;
+    //justify-content: space-evenly;
+    justify-content: end;
+    padding-bottom: 2em;
   }
-
+&__heading{
+  text-align: center;
+  width: 50%;
+}
   &__content{
     padding-top: 2em;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    //justify-content: space-evenly;
   }
 }
 
