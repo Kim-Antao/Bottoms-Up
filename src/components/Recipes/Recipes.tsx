@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import './Recipes.scss';
 import { useParams } from 'react-router-dom';
-import { drink } from '../../types/drink';
+import { Drink } from '../../types/drink';
 
 const Recipes = () => {
-  const [recipe, setRecipe] = useState({} as drink);
+  const [recipe, setRecipe] = useState({} as Drink);
   const {drinkId} = useParams();
   const url = `https:/thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`;
 
@@ -14,11 +14,50 @@ const Recipes = () => {
     .then(data=> setRecipe(data.drinks[0]));
   },[drinkId]) 
 
-  const recipeInfo = (Object.entries(recipe)).reduce((acc,[key, value])=>{
-    acc.push[key,value];
-  },([]));
-  //const Ingredients = recipe.reduce(acc, )
+/*   const recipeInfo = Object.entries(recipe).reduce((acc,[key, value])=>{
+   // acc.push[key,value];
+  if(key.includes('strIngredient') && value != null){
+    console.log(value);
 
+  }
+
+  },([] as [string, string][])); */
+  //const Ingredients = recipe.reduce(acc, )
+let ingredients:string[]=[];
+let measurements:string[]=[];
+
+Object.entries(recipe).filter(([key, value])=>{
+    if(key.includes('strIngredient') && value != null){
+     // console.log(value);
+      ingredients.push(value);
+    }else if(key.includes('strMeasure') && value != null){
+      measurements.push(value);
+    }
+  });
+ 
+
+  //const mergeArraysToObjects = (keys:string[], value:string[]) : {key:}
+/* 
+  const mergedArray = Object.assign({ingredients},measurements);
+  console.log(mergedArray); */
+
+  const merged :{[index:string]:string} = {};
+
+  ingredients.forEach((ingredient, index)=>{
+    merged[ingredient] = measurements[index];
+  })
+
+/*   const mergeArraysToObjects = (ingredients: string[], measurements: string[]): { [key: string]: string }[] => {
+    let result = [];
+    for (let i = 0; i < ingredients.length; i++) {
+        let obj: { [key: string]: string } = {};
+        obj[ingredients[i]] = measurements[i];
+        result.push(obj);
+        console.log('result is ', result);
+    } return result; 
+}
+console.log(mergeArraysToObjects); */
+ // console.log(merged);
   return  (
     <div>
       <div className='recipe__container'>
@@ -26,31 +65,31 @@ const Recipes = () => {
           <img src={recipe.strDrinkThumb} alt="" />
         </div>
         <div className='recipe__content'>
-          <h2>Name: {recipe.strDrink}</h2>
+          <h2>{recipe.strDrink}</h2>
           <p>Type: {recipe.strAlcoholic}</p>
+          <p>Category: {recipe.strCategory}</p>
+          {
+            Object.keys(merged).map((key)=>{
+              return <li>{key}: {merged[key]}</li>
+            })
+          }
+          {/* {ingredients.map((ingredient, index)=>{
+           return <li>{ingredient} - {measurements[index]}</li>
+          })}
           <ul>Ingredients
 <li></li>
           </ul>
           <ul>Quantity
 <li></li>
-          </ul>
+          </ul> */}
+          
           <p>
             Instructions: {recipe.strInstructions}
           </p>
+          <p> Glass Used: {recipe.strGlass}</p>
         </div>
        
-        {/* <h2>{drinks.st}</h2>
-        <img srDrinkrc={drinks.strDrinkThumb} alt="" />
-        <div>
-          Instructions
-          <ul>
-            <li>{drinks.strIngredient1}</li>
-            <li>{drinks.strIngredient2}</li>
-            <li>{drinks.strIngredient3}</li>
-            <li>{drinks.strIngredient4}</li>
-            <li></li>
-          </ul> */}
-        {/* </div> */}
+       
       </div>
     </div>
   )
