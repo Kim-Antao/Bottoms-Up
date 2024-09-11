@@ -6,81 +6,43 @@ import Filter from '../../components/Filter/Filter';
 import SearchBox from '../../components/SearchBox/SearchBox';
 
 type AllDrinksProps = {
-/*   alDrinks: drinkCategory[],
-  nonAlDrinks: drinkCategory[], */
   allDrinks: drinkCategory[],
-  //loaded: boolean
 }
 
 
 const AllDrinks = ({allDrinks}: AllDrinksProps) => {
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [drinkCategory, setdrinkCategory]=useState('all');
+  const [drinksList, setDrinksList]=useState([...allDrinks]);
 
-
-
-const [searchTerm, setSearchTerm] = useState("");
-
-const handleSearchInput = (event: FormEvent<HTMLInputElement>) => {
-   setSearchTerm(event.currentTarget.value);
+  
+  const handleSearchInput = (event: FormEvent<HTMLInputElement>) => {
+     setSearchTerm(event.currentTarget.value);
   }
 
 // Function related radio button filter
-  const [drinkCategory, setdrinkCategory]=useState('all');
 
   const handleTypeSelected = (event: FormEvent<HTMLInputElement>) => {
     setdrinkCategory(event.currentTarget.value)
   }
 
-const [drinksList, setDrinksList]=useState([...allDrinks]);
 
-  //console.log('all drinks ',allDrinks);
 useEffect(()=>{
   setDrinksList([...allDrinks]);
 },[allDrinks])
-  //const [filteredDrinks, setFilteredDrinks]=useState([]);
-
-
+ 
   // change the drinklist based on radio button selection
   useEffect(()=>{
      if(drinkCategory === "all"){
       setDrinksList([...allDrinks]);
     }else if(drinkCategory === "alcoholic"){
       setDrinksList(allDrinks.filter((drink)=> drink.isAlcoholic));
-      //return;
     }else if(drinkCategory === "non-alcoholic"){
       setDrinksList(allDrinks.filter((drink)=> !drink.isAlcoholic));
-      //return;
     }
-    //setDrinksList([...allDrinks]);
-   /* setFilteredDrinks(drinksList.filter((drink) => {
-   return drink.strDrink.toLowerCase().includes(searchTerm.toLowerCase())}));
-    */ 
+  
   },[drinkCategory])
-
-
-  console.log('drinks in state variable',drinksList);
-/*   const filteredDrinks = [...drinks];
-
-  if(drinkCategory === "all"){
-     filteredDrinks = [...drinks];
-  
-  }else if(drinkCategory === "alcoholic"){
-    filteredDrinks = drinks.filter();
-  
-  }else if(drinkCategory === "non-alcoholic"){
-    drinks = [...nonAlDrinks];
-    
-  }  */
- /*    const [filteredDrinks, setFilteredDrinks] = useState([]); 
-    
-    setFilteredDrinks(() => {
-      drinks.filter((drink) => drink.strDrink.toLowerCase().includes(searchTerm.toLowerCase()))
-}); */
-
-    // if(drinkCategory === "alcholic"){
-   const filteredDrinks = drinksList.filter((drink) => drink.strDrink.toLowerCase().includes(searchTerm.toLowerCase()));
-   console.log('filtered drinks', filteredDrinks)      
-
 
 
   return (
@@ -97,7 +59,10 @@ useEffect(()=>{
 
       </div>
       <div className='alldrinks-container__content'>
-      <Drinks drinkList={filteredDrinks}/>
+        {drinksList.length > 0 ?
+      <Drinks drinkList={drinksList} searchTerm={searchTerm}/> : 
+      "Loading ..."
+        }
       </div>
     </div>
   )
