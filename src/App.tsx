@@ -15,30 +15,6 @@ function App() {
   const [alcholicDrinks, setAlcoholicDrinks] = useState([]);
   const[nonAlcoholicDrinks, setNonAlcoholicDrinks] = useState([]);
   const [allDrinks, setAllDrinks] = useState([]);
-//  const [IndividualDrink, setIndividualDrink] = useState([]);
-  //const [loaded, setLoaded] = useState(false);
-
-/*   const baseAlUrl = 'https://thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic';
-  const baseNonAlurl = 'https://thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic';
-
-  const getAlDrinks = async() =>{
-    const response = await fetch(baseAlUrl);
-    const data = await response.json();
-    return data.drinks;
-  }
-
-  useEffect(()=>{
-    async()=>{
-      const AlDrink = await getAlDrinks;
-      setAlcoholicDrinks(AlDrink.map((al: drinkCategory)=>{
-        return{
-          ...al,
-          flag: 'AL',
-        }
-      }))
-
-    }
-  },[]) */
 
   useEffect(()=>{
     fetch('https://thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic')
@@ -46,15 +22,13 @@ function App() {
         return resp.json()
       })
       .then(data => {
-       // setAlcoholicDrinks(data.drinks);
         setAlcoholicDrinks(data.drinks.map((al: drinkCategory)=>{
             return{
               ...al,
-              flag: 'AL',
+              isAlcoholic: true,
             }
           })
         );
-     //   console.log(alcholicDrinks)
       });
     
     fetch('https://thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic')
@@ -65,17 +39,15 @@ function App() {
       setNonAlcoholicDrinks(data.drinks.map((nonAl: drinkCategory)=>{
         return{
           ...nonAl,
-          flag: 'NON',
+          isAlcoholic: false,
         }
       })
     );
     });
   },[]) 
-  //console.log(alcholicDrinks);
 
   useEffect(()=>{
     setAllDrinks([...alcholicDrinks, ...nonAlcoholicDrinks]);
-    //setLoaded(true);
   },[alcholicDrinks,nonAlcoholicDrinks])
 
   const shuffle = () => {
@@ -94,34 +66,6 @@ function App() {
   }
 
   shuffle();
-
-/*   const dummy = {
-        idDrink: "11007",
-        strDrink: "Margarita",
-        strTags: "IBA,ContemporaryClassic",
-        strCategory: "Ordinary Drink",
-        strIBA: "Contemporary Classics",
-        strAlcoholic: "Alcoholic",
-        strGlass: "Cocktail glass",
-        strInstructions: "Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.",
-        strInstructionsDE: "Reiben Sie den Rand des Glases mit der Limettenscheibe, damit das Salz daran haftet. Achten Sie darauf, dass nur der äußere Rand angefeuchtet wird und streuen Sie das Salz darauf. Das Salz sollte sich auf den Lippen des Genießers befinden und niemals in den Cocktail einmischen. Die anderen Zutaten mit Eis schütteln und vorsichtig in das Glas geben.",
-        strInstructionsIT: "Strofina il bordo del bicchiere con la fetta di lime per far aderire il sale.\r\nAvere cura di inumidire solo il bordo esterno e cospargere di sale.\r\nIl sale dovrebbe presentarsi alle labbra del bevitore e non mescolarsi mai al cocktail.\r\nShakerare gli altri ingredienti con ghiaccio, quindi versarli delicatamente nel bicchiere.",
-        strDrinkThumb: "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
-        strIngredient1: "Tequila",
-        strIngredient2: "Triple sec",
-        strIngredient3: "Lime juice",
-        strIngredient4: "Salt",
-        strMeasure1: "1 1/2 oz ",
-        strMeasure2: "1/2 oz ",
-        strMeasure3: "1 oz ",
-        strImageSource: "https://commons.wikimedia.org/wiki/File:Klassiche_Margarita.jpg",
-        strImageAttribution: "Cocktailmarler",
-        strCreativeCommonsConfirmed: "Yes",
-        dateModified: "2015-08-18 14:42:59"
-      }
-     */
-  
-//console.log(allDrinks)
 
   return (
     <>

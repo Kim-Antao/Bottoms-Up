@@ -17,26 +17,7 @@ const AllDrinks = ({allDrinks}: AllDrinksProps) => {
 
 
 
-/*   const alcoholic = alDrinks.map((al)=>{
-  return{
-    ...al,
-    flag: 'AL',
-  }
-  });
- */
-  /* const nonAlcoholic = nonAlDrinks.map((nonAl)=>{
-    return{
-      ...nonAl,
-      flag: 'NON',
-    }
-  }) */
 
-  // const drinks = [...alcoholic, ...nonAlcoholic];
-
-  
-  // shuffle();
-
-// Function related to search box
 const [searchTerm, setSearchTerm] = useState("");
 
 const handleSearchInput = (event: FormEvent<HTMLInputElement>) => {
@@ -64,10 +45,10 @@ useEffect(()=>{
      if(drinkCategory === "all"){
       setDrinksList([...allDrinks]);
     }else if(drinkCategory === "alcoholic"){
-      setDrinksList(allDrinks.filter((drink)=> drink.flag==="AL"));
+      setDrinksList(allDrinks.filter((drink)=> drink.isAlcoholic));
       //return;
     }else if(drinkCategory === "non-alcoholic"){
-      setDrinksList(allDrinks.filter((drink)=> drink.flag==="NON"));
+      setDrinksList(allDrinks.filter((drink)=> !drink.isAlcoholic));
       //return;
     }
     //setDrinksList([...allDrinks]);
