@@ -1,17 +1,23 @@
 @use "./../../assets/styling/color" as *;
+@use './../../assets/styling/mixins' as *;
+
 
 .search-box{
-  //  width: ;
-  width: 20%;
-  margin-right: 5%;
-    background-color: rgba($primary-color,0.2);
-    // outline: none;
-  //  border: 1px solid $primary-color;
-    border-radius: 60px;
-    padding: 10px;
-    color: white;
-    cursor: pointer;
-    &::placeholder{
-        color: rgba(255, 255, 255,0.5);
-    }
+  width: 50%;
+  background-color: rgba($primary-color,0.2);
+  border-radius: 60px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+
+  &::placeholder{
+    color: rgba(255, 255, 255,0.5);
+  }
+}
+
+@include small-phone{
+  .search-box{
+    width: 20%;
+    margin-right: 5%;
+  }
 }
