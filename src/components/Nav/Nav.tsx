@@ -14,17 +14,14 @@ const Nav = () => {
     }
   })
   return ( 
-      <nav className='nav' >
-        <div className='nav__container'>
-          
-           <Link to="/" className='nav__items nav__brand'>
-              M
-              <img  className="nav__brand-icon" src={icon} alt="" />
-              XOLOGIST
-              </Link>
-              <Link to="/drinks" className='nav__items'>Drinks</Link>
-        </div>
-      </nav>
+    <nav className='nav' >          
+      <Link to="/" className='nav__items nav__brand'>
+        M
+        <img  className="nav__brand-icon" src={icon} alt="" />
+        XOLOGIST
+      </Link>
+      <Link to="/drinks" className='nav__items'>Drinks</Link>
+    </nav>
   )
 }
 
