@@ -11,7 +11,6 @@ const RandomDrink = () => {
         <button className='random-drink__button'>CHEERS !!</button>
         </Link>
       </div>
-      
     </div>
   )
 }
