@@ -15,7 +15,7 @@ export const getIngredientsWithMeasurements=(recipe:Drink)=>{
     const ingredientsWithMeasurements :{[index:string]:string} = {};
 
     ingredients.forEach((ingredient, index)=>{
-      measurements[index] ? ingredientsWithMeasurements[ingredient] = measurements[index] : ingredientsWithMeasurements[ingredient] = "-" ;
+      measurements[index] ? ingredientsWithMeasurements[ingredient] = measurements[index] : ingredientsWithMeasurements[ingredient] = "Personal preference" ;
     })
 
     return ingredientsWithMeasurements;
