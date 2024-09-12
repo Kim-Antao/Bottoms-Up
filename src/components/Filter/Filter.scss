@@ -1,20 +1,17 @@
 @use './../../assets/styling/color' as *;
 
 .filter-container{
-    
 
-    &__item-label{
-       padding: 0 0.2em;
-       // padding: 0 0.5em;
-    }
+   &__item-label{
+      padding: 0 0.2em;
+   }
 
-    &__item-radiobtn{
-    //    margin-right: 2em;
-       margin-right: 0.5em;
+   &__item-radiobtn{
+      margin-right: 0.5em;
 
-       &:checked{
-        accent-color: $primary-color;
-       }
-    }
+      &:checked{
+         accent-color: $primary-color;
+      }
+   }
 }
 
