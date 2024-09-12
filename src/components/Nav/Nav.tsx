@@ -14,7 +14,7 @@ const Nav = () => {
     }
   })
   return ( 
-    <nav className='nav nav--scrolled' >          
+    <nav className='nav' >          
       <Link to="/" className='nav__items nav__brand'>
         M
         <img  className="nav__brand-icon" src={icon} alt="" />
