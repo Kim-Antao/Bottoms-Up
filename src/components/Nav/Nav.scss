@@ -18,6 +18,11 @@
         height: 2em;
         display: flex;
         align-items: center;
+        transition: all 1s;
+
+        &:hover{
+            color: $hover-color;
+        }
     }
     
     &__brand{
@@ -31,10 +36,11 @@
     &__brand-icon{
         width: 1.2em;
         height: 1.2em;
+        
     }
-   
-}
 
-.nav.scrolled{
-    background-color: rgba($secondary-color, 1);
+    &--scrolled{
+        background-color: rgba($secondary-color, 1);
+    }
+
 }

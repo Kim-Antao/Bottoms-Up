@@ -1,27 +1,33 @@
 @use './../../assets/styling/color' as * ;
 @use './../../assets/styling/font' as *;
+@use './../../assets/styling/mixins' as *;
 
 .random-drink{
-    &__container{
-        background-color: $primary-color;
-        padding: 2em;
-       // font-family: $primary-font;
-    }
+  padding: 2em;
+  background-color: rgb(0, 0, 0);
 
-    &__heading{
-        font-family: $display-font;
-       // font-weight: 900;
-    }
+  &__heading{
+    font-family: $display-font;
+    font-size: 2em;
+  }
 
-    &__content{
-        margin: 2em 5em;
-    }
+  &__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-    &__button{
-        background-color: $secondary-color;
-        border: 1px solid $primary-color;
-        color: whitesmoke;
-        padding: 1em 3em;
-        box-shadow: inset -2px -2px 2px black;
+  &__para{
+    margin: 1.5em 0em 1.5em;
+  }
+
+  &__button{
+    margin-bottom: 1.5em;
+    @include default-button;
+
+    &:hover{
+      background-color: rgba($secondary-color, .5);
     }
+  }
 }

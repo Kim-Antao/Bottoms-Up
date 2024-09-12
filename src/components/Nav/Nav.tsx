@@ -7,14 +7,14 @@ const Nav = () => {
   document.addEventListener('scroll',()=>{
     const navigation = document.querySelector<HTMLElement>('.nav')!;
     if (window.scrollY > 0){
-      navigation.classList.add('scrolled');
+      navigation.classList.add('nav--scrolled');
     }else{
-      navigation.classList.remove('scrolled');
+      navigation.classList.remove('nav--scrolled');
 
     }
   })
   return ( 
-    <nav className='nav' >          
+    <nav className='nav nav--scrolled' >          
       <Link to="/" className='nav__items nav__brand'>
         M
         <img  className="nav__brand-icon" src={icon} alt="" />

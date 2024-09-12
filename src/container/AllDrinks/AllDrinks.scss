@@ -1,29 +1,53 @@
-.alldrinks-container{
-    padding-top: 5em;
-    width: 100%;
-    min-height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url("./../../assets/media/mixologist-copper.webp");
-   // background-image: url("./../../assets/media/mixologist-copper.webp");
-    background-position: center;
-   background-size: cover;
-  //display: flex;
+@use './../../assets/styling/mixins' as *;
+
+.alldrinks{
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url("./../../assets/media/mixologist-copper.webp");
+  background-position: center;
+  background-size: cover;
+
+  &__header-container{
+    padding-top: 2.8em;
+    padding-bottom: 2em;
+    position: sticky;
+    top:2em;
+
+    &--scrolled{
+      background-color: black;
+    }
+  }
 
   &__header{
-    display: flex;
-    //justify-content: space-evenly;
-    justify-content: end;
-    padding-bottom: 2em;
+    padding-bottom: 1em;   
   }
-&__heading{
-  text-align: center;
-  width: 50%;
-}
+
+  &__heading{
+    text-align: center;
+    padding-bottom: 1em;
+  }
+
   &__content{
     padding-top: 2em;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    //justify-content: space-evenly;
   }
 }
 
+@include small-phone{
+  .alldrinks{
+
+    &__header{
+      display: flex;
+      align-items: center;
+      padding-bottom: 1em;
+      justify-content: end;
+    }
+
+    &__heading{
+      width: 50%;
+      padding-bottom: 0;
+    }
+  }
+}
