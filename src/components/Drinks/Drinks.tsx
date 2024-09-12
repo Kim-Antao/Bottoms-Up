@@ -1,4 +1,3 @@
-import "./Drinks.scss";
 import DrinkTile from "../DrinkTile/DrinkTile";
 import { DrinkCategory } from "../../types/drink";
 
@@ -7,8 +6,6 @@ type DrinksProps ={
    drinkList: DrinkCategory[];
    searchTerm: string;
 }
-
-
 
 const Drinks = ({ drinkList, searchTerm}:DrinksProps) => {
 
