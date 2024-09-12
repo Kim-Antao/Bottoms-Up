@@ -1,0 +1,17 @@
+@use './../../assets/styling/color' as *;
+
+.footer{
+    background-color: $secondary-color;
+    padding: 1em 0;
+    font-size: smaller;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__icon{
+        width: 1em;
+        height: 1em;
+        fill: whitesmoke;
+        padding: 0 5px;
+    }
+}
