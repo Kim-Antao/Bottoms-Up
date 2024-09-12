@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import './App.scss'
 import Nav from './components/Nav/Nav';
-import LandingPage from './components/LandingPage/LandingPage';
-import video from '../src/assets/media/homepage-video.mp4';
+//import LandingPage from './components/LandingPage/LandingPage';
+import Home from './container/Home/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AllDrinks from './container/AllDrinks/AllDrinks';
 import Recipes from './components/Recipes/Recipes';
 import { DrinkCategory } from './types/drink';
-
+import { shuffle } from './scripts/shuffle';
+import RandomDrink from './components/RandomDrink/RandomDrink';
 
 function App() {
 
@@ -49,22 +50,8 @@ function App() {
     setAllDrinks([...alcholicDrinks, ...nonAlcoholicDrinks]);
   },[alcholicDrinks,nonAlcoholicDrinks])
 
-  const shuffle = () => {
-    let currentIndex = allDrinks.length;
 
-    // While there remain elements to shuffle...
-    while (currentIndex != 0) {
-
-      // Pick a remaining element...
-      let randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      // And swap it with the current element.
-      [allDrinks[currentIndex], allDrinks[randomIndex]] = [allDrinks[randomIndex], allDrinks[currentIndex]];
-    }
-  }
-
-  shuffle();
+  shuffle(allDrinks);
 
   return (
     <>
@@ -73,11 +60,13 @@ function App() {
       <Nav/>
         
         <Routes>
-          <Route path='/' element={<LandingPage video={video} heading='MIXOLOGIST' para='Savour the elegance and sophistication of a perfectly balanced cocktail.' buttonLabel='Explore'/>}/>
+          <Route path='/' element={<Home/>}/>
           <Route path='/drinks' element={allDrinks && <AllDrinks allDrinks={allDrinks}/>}/>
           {/* <Route path='/drinks' element={alcholicDrinks && nonAlcoholicDrinks && <AllDrinks alDrinks={alcholicDrinks} nonAlDrinks={nonAlcoholicDrinks}/>}/> */}
           <Route path='/drinks/:drinkId' element={<Recipes/>} />
+          <Route path='/random' element={<RandomDrink/>} />
           </Routes>
+
       </BrowserRouter>
       {/* <LandingPage video={video} heading='MIXOLOGIST' para='Savour the elegance and sophistication of a perfectly balanced cocktail.' buttonLabel='Explore'/>
       {alcholicDrinks && <Drinks heading='Alcholic' drinkList={alcholicDrinks}/>}

@@ -14,15 +14,6 @@ const Recipes = () => {
     .then(data=> setRecipe(data.drinks[0]));
   },[drinkId]) 
 
-/*   const recipeInfo = Object.entries(recipe).reduce((acc,[key, value])=>{
-   // acc.push[key,value];
-  if(key.includes('strIngredient') && value != null){
-    console.log(value);
-
-  }
-
-  },([] as [string, string][])); */
-  //const Ingredients = recipe.reduce(acc, )
 let ingredients:string[]=[];
 let measurements:string[]=[];
 
@@ -36,28 +27,13 @@ Object.entries(recipe).filter(([key, value])=>{
   });
  
 
-  //const mergeArraysToObjects = (keys:string[], value:string[]) : {key:}
-/* 
-  const mergedArray = Object.assign({ingredients},measurements);
-  console.log(mergedArray); */
-
   const merged :{[index:string]:string} = {};
 
   ingredients.forEach((ingredient, index)=>{
     merged[ingredient] = measurements[index];
   })
 
-/*   const mergeArraysToObjects = (ingredients: string[], measurements: string[]): { [key: string]: string }[] => {
-    let result = [];
-    for (let i = 0; i < ingredients.length; i++) {
-        let obj: { [key: string]: string } = {};
-        obj[ingredients[i]] = measurements[i];
-        result.push(obj);
-        console.log('result is ', result);
-    } return result; 
-}
-console.log(mergeArraysToObjects); */
- // console.log(merged);
+
   return  (
     <div>
       <div className='recipe__container'>
@@ -73,15 +49,7 @@ console.log(mergeArraysToObjects); */
               return <li>{key}: {merged[key]}</li>
             })
           }
-          {/* {ingredients.map((ingredient, index)=>{
-           return <li>{ingredient} - {measurements[index]}</li>
-          })}
-          <ul>Ingredients
-<li></li>
-          </ul>
-          <ul>Quantity
-<li></li>
-          </ul> */}
+   
           
           <p>
             Instructions: {recipe.strInstructions}

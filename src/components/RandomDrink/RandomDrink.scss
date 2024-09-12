@@ -1,0 +1,27 @@
+@use './../../assets/styling/color' as * ;
+@use './../../assets/styling/font' as *;
+
+.random-drink{
+    &__container{
+        background-color: $primary-color;
+        padding: 2em;
+       // font-family: $primary-font;
+    }
+
+    &__heading{
+        font-family: $display-font;
+       // font-weight: 900;
+    }
+
+    &__content{
+        margin: 2em 5em;
+    }
+
+    &__button{
+        background-color: $secondary-color;
+        border: 1px solid $primary-color;
+        color: whitesmoke;
+        padding: 1em 3em;
+        box-shadow: inset -2px -2px 2px black;
+    }
+}
