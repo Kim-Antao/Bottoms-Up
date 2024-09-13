@@ -2,11 +2,10 @@
 
 :root {
   margin: 0px;
-  //font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-family: $primary-font;
   line-height: 1.5;
   font-weight: 400;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 
   //color-scheme: light dark;
   //color: rgba(255, 255, 255, 0.87);
@@ -18,15 +17,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
- */
 * {
   margin: 0;
 /*   display: flex;
@@ -35,10 +25,7 @@ a:hover {
   min-height: 100vh; */
 }
 
-/* h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-} */
+
 
 /* button {
   border-radius: 8px;
@@ -59,16 +46,3 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 } */
 
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
- */

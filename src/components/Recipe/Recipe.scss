@@ -53,8 +53,7 @@
    
 }
 
-
-@include small-phone{
+@include landscape-medium-screen-and-above{
     .recipe{
         
         &__container{
@@ -67,10 +66,13 @@
         }
         
         &__image{
+            max-width: 60%;
             grid-area: image;  
         }
 
         &__heading{
+            font-size: 2.5em;
+
             grid-area: heading;
         }
     
@@ -81,17 +83,4 @@
 
     }
 
-}
-
-@include landscape-medium-screen-and-above{
-    .recipe{
-        
-        &__image{
-            max-width: 60%;
-        }
-
-        &__heading{
-            font-size: 2.5em;
-        }
-    }
 }

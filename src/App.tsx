@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
 import './App.scss'
 import Nav from './components/Nav/Nav';
-//import LandingPage from './components/LandingPage/LandingPage';
 import Home from './container/Home/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AllDrinks from './container/AllDrinks/AllDrinks';
-import Recipes from './components/Recipes/Recipes';
 import { DrinkCategory } from './types/drink';
 import { shuffle } from './scripts/shuffle';
-import RandomDrink from './components/RandomDrink/RandomDrink';
+import RandomDrinkDisplay from './container/RandomDrinkDisplay/RandomDrinkDisplay';
+import RecipeDisplay from './container/RecipeDisplay/RecipeDisplay';
+import Footer from './components/Footer/Footer';
 
 function App() {
 
@@ -50,47 +50,20 @@ function App() {
     setAllDrinks([...alcholicDrinks, ...nonAlcoholicDrinks]);
   },[alcholicDrinks,nonAlcoholicDrinks])
 
-
   shuffle(allDrinks);
 
   return (
     <>
-
       <BrowserRouter>
-      <Nav/>
-        
+        <Nav/>  
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/drinks' element={allDrinks && <AllDrinks allDrinks={allDrinks}/>}/>
-          {/* <Route path='/drinks' element={alcholicDrinks && nonAlcoholicDrinks && <AllDrinks alDrinks={alcholicDrinks} nonAlDrinks={nonAlcoholicDrinks}/>}/> */}
-          <Route path='/drinks/:drinkId' element={<Recipes/>} />
-          <Route path='/random' element={<RandomDrink/>} />
-          </Routes>
-
+          <Route path='/drinks/:drinkId' element={<RecipeDisplay/>} />
+          <Route path='/random' element={<RandomDrinkDisplay/>} />
+        </Routes>
+        <Footer/>
       </BrowserRouter>
-      {/* <LandingPage video={video} heading='MIXOLOGIST' para='Savour the elegance and sophistication of a perfectly balanced cocktail.' buttonLabel='Explore'/>
-      {alcholicDrinks && <Drinks heading='Alcholic' drinkList={alcholicDrinks}/>}
-      {nonAlcoholicDrinks && <Drinks heading='Non-Alcholic' drinkList={nonAlcoholicDrinks}/>}
-      */} {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
     </>
   )
 }

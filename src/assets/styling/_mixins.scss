@@ -1,14 +1,27 @@
 @use './devices' as *;
 @use './color' as *;
 
-@mixin small-phone{
-    @media only screen and (max-width:($sm)) {
+@mixin extra-small-screen{
+    @media only screen and (min-width: ($xxs)){
         @content
     }
 }
 
+@mixin small-phone{
+    @media only screen and (min-width:($xs)) {
+        @content
+    }
+}
+
+
 @mixin medium-screen-and-above{
     @media only screen and (min-width:($sm+1)) {
+        @content
+    }
+}
+
+@mixin landscape-medium-screen-and-above{
+    @media only screen and (min-width:($md+1)) {
         @content
     }
 }
