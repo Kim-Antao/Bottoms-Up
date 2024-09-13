@@ -7,7 +7,7 @@ const RandomDrink = () => {
       <h2 className='random-drink__heading'> Can't decide which one to try? </h2>
       <div className="random-drink__content">
         <p className='random-drink__para'>Click on the button and we will help you select a drink</p>
-        <Link to="/random ">
+        <Link to="/Mixologist/random ">
         <button className='random-drink__button'>CHEERS !!</button>
         </Link>
       </div>

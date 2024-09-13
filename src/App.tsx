@@ -57,10 +57,10 @@ function App() {
       <BrowserRouter>
         <Nav/>  
         <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/drinks' element={allDrinks && <AllDrinks allDrinks={allDrinks}/>}/>
-          <Route path='/drinks/:drinkId' element={<RecipeDisplay/>} />
-          <Route path='/random' element={<RandomDrinkDisplay/>} />
+          <Route path='/Mixologist/' element={<Home/>}/>
+          <Route path='/Mixologist/drinks' element={allDrinks && <AllDrinks allDrinks={allDrinks}/>}/>
+          <Route path='/Mixologist/drinks/:drinkId' element={<RecipeDisplay/>} />
+          <Route path='/Mixologist/random' element={<RandomDrinkDisplay/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>

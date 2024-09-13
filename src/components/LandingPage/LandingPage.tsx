@@ -17,7 +17,7 @@ const LandingPage = ({video, heading, para, buttonLabel}: LandingPageProps) => {
       <div className="main-display__content">
         <h1 className="main-display__heading">{heading}</h1>
         <p className="main-display__para">{para}</p>
-        <Link to="/drinks">
+        <Link to="/Mixologist/drinks">
           <button className="main-display__button">{buttonLabel}</button>
         </Link>
       </div>

@@ -15,12 +15,12 @@ const Nav = () => {
   })
   return ( 
     <nav className='nav' >          
-      <Link to="/" className='nav__items nav__brand'>
+      <Link to="/Mixologist/" className='nav__items nav__brand'>
         M
         <img  className="nav__brand-icon" src={icon} alt="" />
         XOLOGIST
       </Link>
-      <Link to="/drinks" className='nav__items'>Drinks</Link>
+      <Link to="/Mixologist/drinks" className='nav__items'>Drinks</Link>
     </nav>
   )
 }

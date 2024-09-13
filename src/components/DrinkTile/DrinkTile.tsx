@@ -11,7 +11,7 @@ const DrinkTile = ({name, image, id}: DrinkTileProps) => {
     
   return (
     <div className="drink-tile">
-      <Link to={`/drinks/${id}`}>
+      <Link to={`/Mixologist/drinks/${id}`}>
         <img className="drink-tile__image" src={image} alt={name} />
       </Link>
       <h3>{name}</h3>
