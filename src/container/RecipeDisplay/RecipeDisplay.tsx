@@ -15,30 +15,12 @@ const RecipeDisplay = () => {
       .then(data=> setRecipe(data.drinks[0]));
     },[drinkId]) 
 
- /*    let ingredients:string[]=[];
-    let measurements:string[]=[];
-
-    Object.entries(recipe).filter(([key, value])=>{
-    if(key.includes('strIngredient') && value != null){
-     // console.log(value);
-      ingredients.push(value);
-    }else if(key.includes('strMeasure') && value != null){
-      measurements.push(value);
-    }
-  });
  
-
-  const ingredientsWithMeasurements :{[index:string]:string} = {};
-
-  ingredients.forEach((ingredient, index)=>{
-    measurements[index] ? ingredientsWithMeasurements[ingredient] = measurements[index] : ingredientsWithMeasurements[ingredient] = "-" ;
-  })
- */
 const ingredientsWithMeasurements = getIngredientsWithMeasurements(recipe);
   
   return (
     <>
-    <Recipe recipe={recipe} ingredientsWithMeasurements={ingredientsWithMeasurements} key={recipe.idDrink}/>
+      <Recipe recipe={recipe} ingredientsWithMeasurements={ingredientsWithMeasurements} key={recipe.idDrink}/>
     </>
   )
 }

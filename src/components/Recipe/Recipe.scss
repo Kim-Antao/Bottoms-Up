@@ -1,8 +1,97 @@
+@use './../../assets/styling/mixins' as *;
+@use './../../assets/styling/font' as *;
+
 .recipe {
-    &__container{
-        color: black;
-        padding-top: 5em;
+
+    &__outer-container{
+        width: 100%;
+        min-height: 93vh;
+        background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url("./../../assets/media/mixologist-copper.webp");
+        background-position: center;
+        background-size: cover;
         display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
+    &__container{
+        height: max-content;
+        margin: 5em 1.5em;
+        border-radius: 5px;
+        color: black;
+        background-color: (whitesmoke);
+        max-width: 80%;
+        padding: 1em;
+    }
+
+    &__image{
+        max-width: 80%;
+        object-fit: contain;
+        border-radius: 5px;
+        margin-bottom: 0.5em;
+    }
+
+    &__heading{
+        font-size: 2em;
+        font-family: $display-font;
+        text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;  
+    }
+
+    &__content{
+        margin: 0.2em 0;
+        text-align: left;
+
+        &--flex{
+            display: flex;
+        }
+    }
+
+    &__sub-heading{
+        text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+
+    }
+   
+}
+
+
+@include small-phone{
+    .recipe{
+        
+        &__container{
+            display: grid;
+            max-width: 60%;
+            grid-template-areas: 'heading heading heading'
+                                 'image image info';
+            align-items: center;
+            justify-items: center;
+        }
+        
+        &__image{
+            grid-area: image;  
+        }
+
+        &__heading{
+            grid-area: heading;
+        }
+    
+        &__inner-container{
+            grid-area: info;
+            padding-right: 2em;
+        }
+
+    }
+
+}
+
+@include landscape-medium-screen-and-above{
+    .recipe{
+        
+        &__image{
+            max-width: 60%;
+        }
+
+        &__heading{
+            font-size: 2.5em;
+        }
+    }
 }
