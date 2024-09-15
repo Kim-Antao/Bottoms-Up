@@ -12,14 +12,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
     }
 
     &__container{
         height: max-content;
-        margin: 5em 1.5em;
+        margin: 5em 1.5em 2em 1.5em;
         border-radius: 5px;
         color: black;
         background-color: (whitesmoke);
+        width: 80%;
         max-width: 80%;
         padding: 1em;
     }
@@ -59,6 +61,7 @@
         &__container{
             display: grid;
             max-width: 60%;
+            grid-template-columns: 25% 25% 50%;
             grid-template-areas: 'heading heading heading'
                                  'image image info';
             align-items: center;
@@ -66,7 +69,6 @@
         }
         
         &__image{
-            max-width: 60%;
             grid-area: image;  
         }
 

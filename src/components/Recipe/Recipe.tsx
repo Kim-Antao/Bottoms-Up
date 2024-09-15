@@ -1,12 +1,16 @@
 import './Recipe.scss';
 import { Drink } from '../../types/drink';
+import { Link } from 'react-router-dom';
+import { FormEventHandler } from 'react';
 
 type RecipeProps = {
   recipe: Drink;
   ingredientsWithMeasurements: {[index: string]:string};
+  isRandom?: boolean;
+  getRandomDrink?: FormEventHandler<HTMLButtonElement>;
 }
 
-const Recipe = ({recipe, ingredientsWithMeasurements}:RecipeProps) => {
+const Recipe = ({recipe, ingredientsWithMeasurements, isRandom, getRandomDrink}:RecipeProps) => {
 
   return  (
     <div className='recipe__outer-container'>
@@ -43,6 +47,12 @@ const Recipe = ({recipe, ingredientsWithMeasurements}:RecipeProps) => {
           </div>
         </div>    
       </div>
+      {
+        isRandom && 
+          <Link to="/Mixologist/random ">
+            <button className='random-drink__button' onClick={getRandomDrink}>Next</button>
+          </Link>
+      }
     </div>
   )
 }
