@@ -20,7 +20,7 @@ const ingredientsWithMeasurements = getIngredientsWithMeasurements(recipe);
   
   return (
     <>
-      <Recipe recipe={recipe} ingredientsWithMeasurements={ingredientsWithMeasurements} key={recipe.idDrink}/>
+      {recipe.idDrink ? <Recipe recipe={recipe} ingredientsWithMeasurements={ingredientsWithMeasurements} key={recipe.idDrink}/> : <p>Loading...</p>}
     </>
   )
 }
