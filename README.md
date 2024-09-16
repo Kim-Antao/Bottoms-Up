@@ -1,50 +1,35 @@
-# React + TypeScript + Vite
+# Mixologist
+Hello fellow developer!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The objective of this project was to create an app intergating an API using React and containing the below features:
+* Filters
+* Search box
 
-Currently, two official plugins are available:
+API used: https://www.thecocktaildb.com/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The site is styled to give it a look of dimly lighted bar. This is my first React project and the focus was more on displaying my understanding on it.
+Would appreciate if you can give any input on optimising the code. Please pop in any ideas in the issues tab. Thank you in advance.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Use the link below to checkout the live site, Recipes for each drink are included too.
+https://kim-antao.github.io/Mixologist/
+_Drink Responsibly_
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Features built
+* Display all the drinks
+* Filter to view only Alcoholic/Non-Alcoholic drinks
+* Search based on drink name
+* Display details of each drink
+* Display details of a random drink
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Features Pending
+* Loading page 
+* Pagination on all drinks page
+* On the recipe page, fix the container height and add a scroll bar for the info.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+
+## Resorces used
+* Icons: https://icon-sets.iconify.design/
+* Font: https://www.fontshare.com/
