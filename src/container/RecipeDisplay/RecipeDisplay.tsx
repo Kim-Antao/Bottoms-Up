@@ -7,7 +7,7 @@ import { getIngredientsWithMeasurements } from "../../scripts/getIngredientsWith
 const RecipeDisplay = () => {
     const [recipe, setRecipe] = useState({} as Drink);
     const {drinkId} = useParams();
-    const url = `https:/thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`;
+    const url = `https://thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`;
   
     useEffect(()=>{
       fetch(url)
