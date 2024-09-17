@@ -12,7 +12,9 @@ Would appreciate if you can give any input on optimising the code. Please pop in
 
 
 Use the link below to checkout the live site, Recipes for each drink are included too.
+
 https://kim-antao.github.io/Mixologist/
+
 _Drink Responsibly_
 
 
@@ -28,7 +30,7 @@ _Drink Responsibly_
 * Loading page 
 * Pagination on all drinks page
 * On the recipe page, fix the container height and add a scroll bar for the info.
-
+* Testing for each component
 
 ## Resorces used
 * Icons: https://icon-sets.iconify.design/
