@@ -8,6 +8,7 @@
 
    &__item-radiobtn{
       margin-right: 0.5em;
+      cursor: pointer;
 
       &:checked{
          accent-color: $primary-color;
